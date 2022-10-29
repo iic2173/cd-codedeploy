@@ -23,3 +23,4 @@ https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-s
 Useful for debbuging:
 1. The logs of the aws code deploy agent are in the `/var/log/aws/codedeploy-agent` directory and can be used to see the logs directly on the machine
 
+2. If the deployment fails because of previous deployment caching the content on `/opt/codedeploy-agent/deployment-root` can be deleted because it will be recreated in the new deployments.
