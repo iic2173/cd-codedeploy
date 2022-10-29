@@ -28,6 +28,6 @@ jobs:
             echo "deploymentId=$deploymentId" >> $GITHUB_OUTPUT
 
       - name: Echo deployApplication output
-        run: echo ${{ toJSON(steps.deployApplication.outputs) }}
+        run: echo ${{ steps.deployApplication.outputs }}
       - name: Wait until deployment is done
         run: aws deploy wait deployment-successful --deployment-id ${{steps.deployApplication.outputs.deploymentId}}
