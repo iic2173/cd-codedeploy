@@ -24,7 +24,7 @@ jobs:
               --deployment-config-name CodeDeployDefault.OneAtATime \
               --deployment-group-name CodeDeployGitHubDemo-DepGrp \
               --description "Automatic deployment of ${{github.sha}}" \
-              --github-location repository=iic2173/cd-codedeploy,commitId=${{github.sha}} | jq '.deploymentId' )
+              --github-location repository=iic2173/cd-codedeploy,commitId=${{github.sha}} | jq -r '.deploymentId' )
             echo "deploymentId=$deploymentId" >> $GITHUB_OUTPUT
 
       - name: Echo deployApplication output
