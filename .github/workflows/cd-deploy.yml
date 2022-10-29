@@ -23,5 +23,3 @@ jobs:
             --description Automatic deployment of ${{github.sha}} \
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --github-location repository=iic2173/cd-codedeploy,commitId=${{github.sha}}
-
-                 
