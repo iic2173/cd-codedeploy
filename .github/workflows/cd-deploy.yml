@@ -25,11 +25,9 @@ jobs:
               --deployment-group-name CodeDeployGitHubDemo-DepGrp \
               --description "Automatic deployment of ${{github.sha}}" \
               --github-location repository=iic2173/cd-codedeploy,commitId=${{github.sha}})
-            echo "::set-output name=deploymentId::$deploymentId"
+            echo "{deploymentId}={$deploymentId}" >> $GITHUB_OUTPUT
 
       - name: Echo deployApplication output
         run: echo ${{ toJSON(steps.deployApplication.outputs) }}
-      - name: Echo deployApplication output 2
-        run: echo ${{steps.deployApplication.outputs.data}}
       - name: Wait until deployment is done
         run: aws deploy wait deployment-successful --deployment-id ${{steps.deployApplication.outputs.deploymentId}}
