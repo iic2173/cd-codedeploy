@@ -1,2 +1,5 @@
+#!/bin/bash
+cd /home/ubuntu/api
+
 echo "Starting Service... :)"
-docker compose up
+docker compose up -d
