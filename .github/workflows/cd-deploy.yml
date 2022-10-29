@@ -14,14 +14,14 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: Echo commit hash
-        run: echo "${{GITHUB_SHA}}"
+        run: echo ${{github.sha}}
       - name: Deploy application
         run: |
           aws deploy create-deployment \
             --application-name cd-backend \
             --deployment-group-name CodeDeployGitHubDemo-DepGrp \
-            --description Automatic deployment of ${{GITHUB_SHA}} \
+            --description Automatic deployment of ${{github.sha}} \
             --deployment-config-name CodeDeployDefault.OneAtATime \
-            --github-location repository=iic2173/cd-codedeploy,commitId=${{GITHUB_SHA}}
+            --github-location repository=iic2173/cd-codedeploy,commitId=${{github.sha}}
 
                  
