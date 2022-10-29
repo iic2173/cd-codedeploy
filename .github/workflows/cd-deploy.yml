@@ -19,13 +19,6 @@ jobs:
         id: deployApplication
         # Wee call the aws deploy command, get the deployment id and store it in the output steps
         run: |
-            deploymentId=$(aws deploy create-deployment \
-              --application-name cd-backend \
-              --deployment-config-name CodeDeployDefault.OneAtATime \
-              --deployment-group-name CodeDeployGitHubDemo-DepGrp \
-              --description "Automatic deployment of ${{github.sha}}" \
-              --github-location repository=iic2173/cd-codedeploy,commitId=${{github.sha}})
-
             deploymentId=$( aws deploy create-deployment \
               --application-name cd-backend \
               --deployment-config-name CodeDeployDefault.OneAtATime \
