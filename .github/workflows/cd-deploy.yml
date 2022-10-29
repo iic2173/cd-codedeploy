@@ -13,8 +13,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-      - name: Echo commit hash
-        run: echo ${{github.sha}}
       - name: Deploy application
         id: deployApplication
         # Wee call the aws deploy command, get the deployment id and store it in the output steps
@@ -26,8 +24,5 @@ jobs:
               --description "Automatic deployment of ${{github.sha}}" \
               --github-location repository=iic2173/cd-codedeploy,commitId=${{github.sha}} | jq -r '.deploymentId' )
             echo "deploymentId=$deploymentId" >> $GITHUB_OUTPUT
-
-      - name: Echo deployApplication output
-        run: echo ${{ steps.deployApplication.outputs }}
       - name: Wait until deployment is done
         run: aws deploy wait deployment-successful --deployment-id ${{steps.deployApplication.outputs.deploymentId}}
