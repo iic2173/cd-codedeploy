@@ -17,9 +17,9 @@ jobs:
         run: echo ${{github.sha}}
       - name: Deploy application
         run: |
-          aws deploy create-deployment \
-            --application-name cd-backend \
-            --deployment-group-name CodeDeployGitHubDemo-DepGrp \
-            --description Automatic deployment of ${{github.sha}} \
-            --deployment-config-name CodeDeployDefault.OneAtATime \
-            --github-location repository=iic2173/cd-codedeploy,commitId=${{github.sha}}
+            aws deploy create-deployment \
+              --application-name cd-backend \
+              --deployment-config-name CodeDeployDefault.OneAtATime \
+              --deployment-group-name CodeDeployGitHubDemo-DepGrp \
+              --description Automatic deployment of ${{github.sha}} \
+              --github-location repository=iic2173/cd-codedeploy,commitId=${{github.sha}}
