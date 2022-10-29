@@ -21,5 +21,5 @@ jobs:
               --application-name cd-backend \
               --deployment-config-name CodeDeployDefault.OneAtATime \
               --deployment-group-name CodeDeployGitHubDemo-DepGrp \
-              --description Automatic deployment of ${{github.sha}} \
+              --description "Automatic deployment of ${{github.sha}}" \
               --github-location repository=iic2173/cd-codedeploy,commitId=${{github.sha}}
