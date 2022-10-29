@@ -16,6 +16,7 @@ jobs:
       - name: Echo commit hash
         run: echo ${{github.sha}}
       - name: Deploy application
+        id: DeployApplication
         run: |
             aws deploy create-deployment \
               --application-name cd-backend \
@@ -23,3 +24,5 @@ jobs:
               --deployment-group-name CodeDeployGitHubDemo-DepGrp \
               --description "Automatic deployment of ${{github.sha}}" \
               --github-location repository=iic2173/cd-codedeploy,commitId=${{github.sha}}
+      - name: Wait until deployment is done
+        run: aws deploy wait deployment-successful --deployment-id ${{steps.DeployApplication.outputs.deploymentId}}
