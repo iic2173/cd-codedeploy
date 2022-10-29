@@ -1,0 +1,27 @@
+name: CD Deploy
+
+on:
+  push: 
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Echo commit hash
+        run: echo "${{GITHUB_SHA}}"
+      - name: Deploy application
+        run: |
+          aws deploy create-deployment \
+            --application-name cd-backend \
+            --deployment-group-name CodeDeployGitHubDemo-DepGrp \
+            --description Automatic deployment of ${{GITHUB_SHA}} \
+            --deployment-config-name CodeDeployDefault.OneAtATime \
+            --github-location repository=iic2173/cd-codedeploy,commitId=${{GITHUB_SHA}}
+
+                 
