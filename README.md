@@ -1,7 +1,8 @@
 # cd-codedeploy
 A sample project to deploy a simple application with AWS Codedeploy into an EC2 instance
 
-
+Link Video: https://drive.google.com/file/d/1C62RzZxmbsRsuk5stjexb4dv36dGukIp/view?usp=share_link
+ 
 ## Steps for the CD
 https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-files.html
 
@@ -28,7 +29,7 @@ Useful for debbuging:
 # En vivo
 
 
-Links útiles:
+Useful Links:
 1. AWS CLI:
 https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html
 https://docs.aws.amazon.com/cli/latest/reference/deploy/index.html
@@ -46,6 +47,7 @@ https://docs.github.com/en/actions
 4. Bash scripts (anexo por si lo necesitan):
 https://matt.might.net/articles/bash-by-example/#:~:text=To%20create%20a%20bash%20script,the%20top%20of%20the%20file.&text=To%20execute%20the%20script%20from,%2Fpath%2Fto%2Finterpreter%20.
 
+Nota:
 Les recomiendo primero familiarizarse con los conceptos de CD para que planeen cual es el flujo de CD que deben armar, hacer un diagrama que vean claramente que servicio llama a cual para que no tengan problemas por el diseño de su CD.
 
 Ya planeado su CD hagan todo el flujo de manera manual primero, vean que comandos necesitan para levantar y detener su aplicación, en que directorio del EC2 irá cada archivo etc...
@@ -54,4 +56,4 @@ Primero seguir paso por paso la guía de *Gettting Started* de `CodeDeploy`, lue
 
 Cualquier duda pregunten pues la creación de un buen flujo de CD no siempre es fácil y puede ser difícil de debuguear la primera vez que se hace.
 
-Nota: Si tienen problemas de memoria por mucho uso de docker pueden hacer un flujo de CD buildeando las imagenes, subiendolas al registry de aws (ECR) o de docker (dockerhub) y cambian los scripts de los hooks para que levanten su app de manera correcta.
+PD: Si tienen problemas de memoria por mucho uso de docker pueden hacer un flujo de CD buildeando las imagenes, subiendolas al registry de aws (ECR) o de docker (dockerhub) y cambian los scripts de los hooks para que levanten su app de manera correcta.
