@@ -27,18 +27,23 @@ Useful for debbuging:
 
 # En vivo
 
+
 Links útiles:
-1. Aws Codedeploy:
+1. AWS CLI:
+https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html
+https://docs.aws.amazon.com/cli/latest/reference/deploy/index.html
+
+2. Aws Codedeploy:
 Conceptos: https://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html
 Guías: 
 Setup Codedeploy: https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-codedeploy.html
 Integración con Github: https://docs.aws.amazon.com/codedeploy/latest/userguide/tutorials-github.html
 Syntax: `appspec.yml` https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file.html#appspec-reference-server, https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html
 
-2. Github Actions
+3. Github Actions
 https://docs.github.com/en/actions
 
-3. Bash scripts (anexo por si lo necesitan):
+4. Bash scripts (anexo por si lo necesitan):
 https://matt.might.net/articles/bash-by-example/#:~:text=To%20create%20a%20bash%20script,the%20top%20of%20the%20file.&text=To%20execute%20the%20script%20from,%2Fpath%2Fto%2Finterpreter%20.
 
 Les recomiendo primero familiarizarse con los conceptos de CD para que planeen cual es el flujo de CD que deben armar, hacer un diagrama que vean claramente que servicio llama a cual para que no tengan problemas por el diseño de su CD.

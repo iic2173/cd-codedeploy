@@ -16,8 +16,9 @@ jobs:
       - name: Deploy application
         id: deployApplication
         # Wee call the aws deploy command, get the deployment id and store it in the output steps
+        # https://stackoverflow.com/questions/66381595/trying-to-parse-json-output-in-a-github-action
         run: |
-            deploymentId=$( aws deploy create-deployment \
+            deploymentId=$( aws deploy create-deployment \ 
               --application-name cd-backend \
               --deployment-config-name CodeDeployDefault.OneAtATime \
               --deployment-group-name CodeDeployGitHubDemo-DepGrp \
